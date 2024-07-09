@@ -1,0 +1,45 @@
+# PNPM
+.pnpm/
+pnpm-lock.yaml
+
+# Prisma
+db/client/deno/*
+db/client/runtime/*
+db/client/default.*
+db/client/edge.*
+db/client/index*
+db/client/package.*
+db/client/schema.prisma
+db/client/wasm.*
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache
+.cache/
+dist/
+build/
+out/
+public/
+tmp/
+temp/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz

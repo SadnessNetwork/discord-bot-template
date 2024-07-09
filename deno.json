@@ -1,0 +1,26 @@
+{
+  "tasks": {
+    "start": "deno run --unstable --allow-env --allow-net --allow-read mod.ts",
+    "dev": "deno run --unstable --watch --allow-env --allow-net --allow-read mod.ts",
+    "check": "deno check --unstable mod.ts",
+    "test": "deno test",
+    "cache": "deno cache mod.ts",
+    "compile": "deno compile --unstable -A mod.ts"
+  },
+  "imports": {
+    "@commands/": "./src/commands/",
+    "@components/": "./src/components/",
+    "@client/": "./src/client/",
+    "@context/": "./src/context/",
+    "@events/": "./src/events/",
+    "@apps/": "./src/apps/",
+    "@utils/": "./src/utils/",
+    "@database/": "./src/database/",
+    "@db": "./db/client/deno/edge.ts",
+    "canvas/": "https://deno.land/x/canvas@v1.4.1/",
+    "gtr/": "https://deno.land/x/gtr@v0.0.1/",
+    "harmony/": "https://deno.land/x/harmony@v2.9.1/",
+    "std/": "https://deno.land/std@v0.223.0/"
+  },
+  "lock": false
+}

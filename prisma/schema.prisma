@@ -1,0 +1,91 @@
+// ------------------------------------------------------------------------
+// ---------------------------    General     -----------------------------
+// ------------------------------------------------------------------------
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["deno"]
+  output          = "../db/client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// ------------------------------------------------------------------------
+
+// #region "Models"
+
+model Users {
+  DbId      String @id @map("_id") @db.ObjectId
+  DiscordId String @unique
+
+  Gender GenderType
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model GuildReference {
+  DbId    String @id @map("_id") @db.ObjectId
+  GuildId String @unique
+
+  Config Config
+
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
+
+  @@map("guilds")
+}
+
+// #endregion
+
+// ------------------------------------------------------------------------
+
+// #region "Types"
+
+type Config {
+  Type     GuildType
+  Channels ChannelJSONable[]
+  Embeds   EmbedJSONable[]
+}
+
+type ChannelJSONable {
+  Id String
+}
+
+type EmbedJSONable {
+  Title       String
+  Description String
+  Color       String?  @default("#2f3136")
+  Fields      Fields[]
+}
+
+type Fields {
+  Name   String
+  Value  String
+  Inline Boolean?
+}
+
+// #endregion
+
+// ------------------------------------------------------------------------
+
+// #region "Enums"
+
+enum GuildType {
+  Staff
+  Public
+  Private
+}
+
+enum GenderType {
+  Male
+  Female
+  Hidden
+}
+
+// #endregion
