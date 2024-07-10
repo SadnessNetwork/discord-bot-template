@@ -22,25 +22,16 @@ export type EventExecute<Key extends EventName> = (
   ...args: EventArgs<Key>
 ) => EventReturn;
 
-/**
- * ## Конструктор событий
- */
 export class SuperEvent<Key extends EventName = EventName> {
   public name!: Key;
   public execute!: EventExecute<Key>;
 
-  /**
-   * ## Установка названия события
-   */
   public setName(name: Key) {
     this.name = name;
 
     return this;
   }
 
-  /**
-   * ## Установка функции события
-   */
   public setExecute(func: EventExecute<Key>) {
     this.execute = func;
 

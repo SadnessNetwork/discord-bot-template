@@ -1,6 +1,3 @@
-/**
- * ## Для автокомплита & документация
- */
 export enum Events {
   APIClientReady = "ready",
   APIShardReady = "shardReady",

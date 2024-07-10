@@ -1,3 +1,3 @@
-export * from "./commands/mod.ts";
-export * from "./components/mod.ts";
-export * from "./events/mod.ts";
+export * from "@apps/commands/mod.ts";
+export * from "@apps/components/mod.ts";
+export * from "@apps/events/mod.ts";

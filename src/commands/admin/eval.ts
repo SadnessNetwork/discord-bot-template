@@ -26,8 +26,9 @@ const EvalCommandExecuteFunc: CommandExecute = async (_, ctx) => {
 };
 
 const exportable = new SuperCommand()
-  .setName("Eval")
+  .setName("eval")
   .setDescription("Execute code in the bot's environment.")
+  .setDevOnly(true)
   .setOptions(...OptionsData)
   .setExecute(EvalCommandExecuteFunc);
 

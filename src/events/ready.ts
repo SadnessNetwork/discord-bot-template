@@ -1,12 +1,16 @@
-import { SuperEvent } from "@apps/mod.ts";
+import { EventExecute, SuperEvent } from "@apps/mod.ts";
 import { Events } from "@utils/mod.ts";
 
-export default new SuperEvent<Events.APIClientReady>()
-  .setName(Events.APIClientReady)
-  .setExecute(async ({ interactions, commands }) => {
-    // Регистрируем все команды
-    const jsonCommands = commands.array().map((raw) => raw.json());
+const ClientReadyEventExecuteFunc: EventExecute<
+  Events.APIClientReady
+> = async ({ interactions, commands }) => {
+  const jsonCommands = commands.array().map((raw) => raw.json());
 
-    // Применяем все изменения
-    await interactions.commands.bulkEdit(jsonCommands);
-  });
+  await interactions.commands.bulkEdit(jsonCommands);
+};
+
+const exportable = new SuperEvent<Events.APIClientReady>()
+  .setName(Events.APIClientReady)
+  .setExecute(ClientReadyEventExecuteFunc);
+
+export default exportable;

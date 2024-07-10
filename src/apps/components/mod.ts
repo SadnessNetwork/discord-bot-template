@@ -7,25 +7,16 @@ export type ComponentExecute = (
   interaction: MessageComponentInteraction
 ) => ComponentExecuteReturn;
 
-/**
- * ## Конструктор компонентов
- */
 export class SuperComponent {
   public customId!: RegExp;
   public execute!: ComponentExecute;
 
-  /**
-   * ## Установка customId компонента
-   */
   public setCustomId(customId: RegExp) {
     this.customId = customId;
 
     return this;
   }
 
-  /**
-   * ## Установка функции компонента
-   */
   public setExecute(execute: ComponentExecute) {
     this.execute = execute;
 

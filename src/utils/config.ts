@@ -8,15 +8,9 @@ export interface Env {
   MODE: "development" | "production" | string;
 }
 
-/**
- * ## Получение переменных окружения
- */
 export const getEnvariables = async () =>
   ((Deno.env.get("MODE") as Env["MODE"]) === "production"
     ? Deno.env.toObject()
     : await load()) as unknown as Env;
 
-/**
- * ## Переменные окружения
- */
 export const env = await getEnvariables();
