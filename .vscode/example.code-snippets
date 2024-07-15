@@ -1,0 +1,67 @@
+{
+  "command": {
+    "prefix": "dcmd",
+    "body": [
+      "import { CommandExecute, SuperCommand } from \"@apps/mod.ts\";",
+      "import {",
+      "  ApplicationCommandOption,",
+      "  ApplicationCommandOptionType,",
+      "} from \"harmony/mod.ts\";",
+      "",
+      "const OptionsData: ApplicationCommandOption[] = [",
+      "  ",
+      "];",
+      "",
+      "const ${1:cmdConstantName}CommandExecuteFunc: CommandExecute = async (client, ctx) => {",
+      "",
+      "};",
+      "",
+      "const exportable = new SuperCommand()",
+      "  .setName(\"${2:cmdName}\")",
+      "  .setDescription(\"${3:cmdDesc}\")",
+      "  .setOptions(...OptionsData)",
+      "  .setExecute(${1:cmdConstantName}CommandExecuteFunc);",
+      "",
+      "export default exportable;",
+      ""
+    ],
+    "description": "Command"
+  },
+  "event": {
+    "prefix": "devt",
+    "body": [
+      "import { EventExecute, SuperEvent } from \"@apps/mod.ts\";",
+      "import { Events, logger } from \"@utils/mod.ts\";",
+      "",
+      "const ${1:evtName}EventExecuteFunc: EventExecute<Events> = (_, {}) => {",
+      "  ",
+      "};",
+      "",
+      "const exportable = new SuperEvent<Events>()",
+      "  .setName(Events)",
+      "  .setExecute(evtNameEventExecuteFunc);",
+      "",
+      "export default exportable;",
+      ""
+    ],
+    "description": "Event"
+  },
+  "component": {
+    "prefix": "dcmp",
+    "body": [
+      "import { ComponentExecute, SuperComponent } from \"@apps/mod.ts\";",
+      "",
+      "const ${1:dcmpConstantName}MessageComponentFunc: ComponentExecute = async (_, {}) => {",
+      "  ",
+      "}",
+      "",
+      "const exportable = new SuperComponent()",
+      "  .setCustomId(/${2:dcmpRegExp}/)",
+      "  .setExecute(${1:dcmpConstantName}MessageComponentFunc);",
+      "",
+      "export default exportable;",
+      ""
+    ],
+    "description": "Create Component"
+  }
+}

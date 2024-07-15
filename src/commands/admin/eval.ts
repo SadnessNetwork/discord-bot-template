@@ -1,8 +1,14 @@
+/**
+ * This command does not work, it is only an example.
+ *
+ * @tamplete
+ */
+
+import { CommandExecute, SuperCommand } from "@apps/mod.ts";
 import {
   ApplicationCommandOption,
   ApplicationCommandOptionType,
 } from "harmony/mod.ts";
-import { CommandExecute, SuperCommand } from "../../apps/mod.ts";
 
 const OptionsData: ApplicationCommandOption[] = [
   {

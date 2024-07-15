@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "fractalbrew.backticks",
+    "alefragnani.bookmarks",
+    "littensy.charmed-icons",
+    "denoland.vscode-deno",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "ybaumes.highlight-trailing-white-spaces",
+    "shd101wyy.markdown-preview-enhanced",
+    "esbenp.prettier-vscode",
+    "prisma.prisma",
+    "natqe.reload",
+    "gruntfuggly.todo-tree",
+    "chakrounanas.turbo-console-log",
+    "homerotto.themin",
+    "wallabyjs.console-ninja"
+  ]
+}

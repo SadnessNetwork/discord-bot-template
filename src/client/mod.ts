@@ -39,8 +39,6 @@ export class SuperClient extends Client {
   }
 
   public async start() {
-    await this.db.$connect();
-
     await this.connect(this.token, DiscordIntents);
   }
 }

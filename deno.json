@@ -1,11 +1,13 @@
 {
   "tasks": {
     "start": "deno run --unstable --allow-env --allow-net --allow-read mod.ts",
-    "dev": "deno run --unstable --watch --allow-env --allow-net --allow-read mod.ts",
+    "dev:deno": "deno run --watch --allow-env --allow-net --allow-read mod.ts",
+    "dev:denon": "denon run --allow-env --allow-net --allow-read mod.ts",
+    "db:gen": "deno run -A npm:prisma generate --accelerate",
     "check": "deno check --unstable mod.ts",
     "test": "deno test",
     "cache": "deno cache mod.ts",
-    "compile": "deno compile --unstable -A mod.ts"
+    "compile": "deno compile --unstable-* -A mod.ts"
   },
   "imports": {
     "@commands/": "./src/commands/",
@@ -15,8 +17,10 @@
     "@events/": "./src/events/",
     "@apps/": "./src/apps/",
     "@utils/": "./src/utils/",
+    "@modules/": "./src/modules/",
     "@database/": "./src/database/",
     "@db": "./db/client/deno/edge.ts",
+    "winston/": "https://deno.land/x/houston@1.0.0/",
     "canvas/": "https://deno.land/x/canvas@v1.4.1/",
     "gtr/": "https://deno.land/x/gtr@v0.0.1/",
     "harmony/": "https://deno.land/x/harmony@v2.9.1/",

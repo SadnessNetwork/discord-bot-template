@@ -1,6 +1,6 @@
 import { EventExecute, SuperEvent } from "@apps/mod.ts";
 import { embedDefault } from "@context/colors.ts";
-import { Events } from "@utils/mod.ts";
+import { eReply, eReplyEmbed, Events, logger } from "@utils/mod.ts";
 import { Embed } from "harmony/mod.ts";
 
 const InteractionCreateEventExecuteFunc: EventExecute<
@@ -22,16 +22,13 @@ const InteractionCreateEventExecuteFunc: EventExecute<
         description: `You don't have permission to use this command.`,
       });
 
-      return await ctx.reply({
-        embeds: [embedDontHavePermission],
-        ephemeral: true,
-      });
+      return await eReplyEmbed(embedDontHavePermission, ctx);
     }
 
     return await command.execute(client, ctx).catch(async (e) => {
-      console.error(e);
+      logger.error(e);
 
-      await ctx.reply("Unknown error happened!");
+      await eReply("Unknown error happened!", ctx, false);
     });
   }
 
@@ -42,7 +39,7 @@ const InteractionCreateEventExecuteFunc: EventExecute<
 
     if (!component) return;
 
-    return await component.execute(client, ctx)?.catch((e) => console.error(e));
+    return await component.execute(client, ctx)?.catch((e) => logger.error(e));
   }
 };
 

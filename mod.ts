@@ -4,6 +4,7 @@ import { commands } from "@commands/mod.ts";
 import { components } from "@components/mod.ts";
 import { events } from "@events/mod.ts";
 import { env } from "@utils/config.ts";
+import { logger } from "@utils/mod.ts";
 import { PACKAGE_VERSION } from "./src/version.ts";
 
 if (import.meta.main) {
@@ -14,8 +15,7 @@ if (import.meta.main) {
     components
   );
 
-  console.log("Starting client...");
-  console.log(`Author: sotiesman AKA Sadness\nVersion: ${PACKAGE_VERSION}`);
+  logger.info(`Version (${PACKAGE_VERSION})`);
 
   await client.start();
 }
